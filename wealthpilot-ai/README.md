@@ -95,10 +95,10 @@ This repository includes:
 ## 🎥 Product Demo
 
 **Live Prototype:**  
-👉 https://your-demo-link.com
+👉 
 
 **Demo Video:**  
-👉 https://your-video-link.com
+👉 
 
 ---
 
