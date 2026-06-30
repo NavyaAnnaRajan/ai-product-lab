@@ -61,7 +61,8 @@ Some of the areas I explored include:
 
 ## 📸 Project Walkthrough
 
-*(Add screenshots here in order.)*
+*(<img width="1389" height="776" alt="Screenshot 2026-06-30 at 7 11 56 PM" src="https://github.com/user-attachments/assets/d1ebe1b6-bc09-4404-a9e3-f543e1465e95" />
+)*
 
 ### Candidate Voice Interview
 
