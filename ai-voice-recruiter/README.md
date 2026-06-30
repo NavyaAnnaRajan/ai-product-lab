@@ -1,81 +1,83 @@
 # 🎙️ AI Voice Recruiter
 
-## Overview
+## Personal Project
 
-AI Voice Recruiter is an AI-first recruitment assistant designed to automate the initial candidate screening process through intelligent voice conversations. The concept explores how conversational AI can reduce repetitive recruiter effort while improving candidate experience, hiring efficiency, and decision quality.
+This is a self-initiated AI Product Management project created to explore how Voice AI and Large Language Models can transform the candidate screening process. Rather than treating AI as a simple chatbot, I wanted to understand how an enterprise-grade AI recruiting assistant could be designed to reduce recruiter effort, improve candidate experience, and enable faster, more consistent hiring decisions while ensuring recruiters remain in control of final outcomes.
 
-Instead of recruiters manually conducting every initial screening call, the AI assistant engages candidates in structured voice conversations, evaluates responses against predefined job requirements, generates explainable assessments, and recommends next steps for recruiter review. The objective is to augment recruiters—not replace them—by automating repetitive tasks while ensuring final hiring decisions remain human-led.
+I approached this as a complete product initiative—from problem discovery through solution design—rather than simply building a prototype. The project began with researching common recruitment challenges, identifying user pain points for recruiters, hiring managers, and candidates, and evaluating where conversational AI could create meaningful business value. Based on these insights, I defined the product vision, user personas, success metrics, feature roadmap, and overall AI strategy before designing the technical solution.
 
-This project was developed as an end-to-end AI Product Management case study covering product strategy, user research, solution design, AI architecture, governance, evaluation, and responsible AI principles.
+The solution enables candidates to participate in structured AI-powered voice interviews, where the assistant asks contextual questions, adapts follow-up conversations, captures responses, evaluates candidate fit against job requirements, and generates explainable summaries for recruiters. Instead of replacing recruiters, the system is designed to automate repetitive screening activities while supporting human decision-making through transparent recommendations and evidence-based assessments.
+
+A significant focus of this project was understanding the broader AI product ecosystem rather than just the user interface. I explored how Voice AI, Large Language Models, Retrieval-Augmented Generation (RAG), prompt engineering, knowledge retrieval, evaluation pipelines, explainability, guardrails, and human-in-the-loop workflows work together to deliver reliable enterprise AI experiences. I also designed governance mechanisms to address concerns around hallucinations, bias, confidence scoring, auditability, data privacy, and responsible AI adoption.
+
+Beyond the product strategy, I documented the end-to-end system architecture, conversation workflows, API integrations, recruiter dashboard concepts, evaluation framework, monitoring strategy, implementation roadmap, and success metrics. The objective was to think through every aspect required to move from an idea to a production-ready AI product rather than focusing solely on feature development.
+
+This project reflects my interest in building AI-native products that combine strong product thinking with practical AI capabilities. More importantly, it helped me deepen my understanding of how Product Managers can leverage modern AI technologies to solve complex business problems while balancing technical feasibility, user experience, operational efficiency, and responsible AI principles.
 
 ---
 
-## My Contributions
+## What I Worked On
 
-- Identified the business opportunity and recruitment pain points through product discovery.
-- Defined the product vision, objectives, and AI-first strategy.
-- Designed the end-to-end recruiter and candidate journeys.
-- Authored a comprehensive Product Requirements Document (PRD).
-- Designed the Voice AI screening workflow and conversation experience.
-- Defined the technical architecture, including LLM orchestration, RAG, evaluation engine, explainability layer, and ATS integrations.
-- Established Responsible AI guardrails, governance controls, and human-in-the-loop review mechanisms.
-- Designed AI evaluation metrics, monitoring framework, and business success metrics.
-- Created wireframes and interactive product concepts to validate the experience.
+- Product discovery and problem definition
+- Market research and competitive analysis
+- Product vision, strategy, and roadmap
+- User personas and end-to-end user journeys
+- AI conversation design for candidate screening
+- Product Requirements Document (PRD)
+- Voice AI workflow design
+- AI system architecture and solution design
+- Retrieval-Augmented Generation (RAG) strategy
+- Prompt engineering and conversation flows
+- Recruiter dashboard and candidate evaluation experience
+- Explainable AI recommendations and confidence scoring
+- Human-in-the-loop review workflows
+- Responsible AI, governance, and guardrail design
+- AI evaluation framework and success metrics
+- Implementation roadmap and phased rollout strategy
 
 ---
 
 ## AI Concepts Explored
 
 - Voice AI
-- Conversational AI
 - Large Language Models (LLMs)
 - Retrieval-Augmented Generation (RAG)
 - Prompt Engineering
-- AI Evaluation Frameworks
+- AI Agents & Workflow Orchestration
 - Explainable AI
-- Responsible AI
+- AI Evaluation Frameworks
 - Human-in-the-Loop Decision Making
-- AI Product Strategy
+- Responsible AI & Governance
+- Enterprise AI Product Strategy
 
 ---
 
-## AI Tools Used
+## Tools Used
 
-| Tool | Purpose |
-|------|---------|
-| Claude | Product discovery, PRD creation, architecture design, feature ideation, AI workflows, and prompt engineering |
-| ChatGPT | Market research, competitive analysis, documentation refinement, and product validation |
-| Claude Code | AI-assisted prototyping and implementation support |
-| Figma | Wireframing, user journeys, and concept validation |
-| GitHub | Documentation and portfolio management |
+- **Claude** — Product discovery, PRD creation, AI architecture, workflow design, prompt engineering, and technical documentation
+- **ChatGPT** — Market research, competitive analysis, brainstorming, and content refinement
+- **Figma** — User journeys, wireframes, and interaction design
+- **GitHub** — Documentation and portfolio management
 
 ---
 
 ## Deliverables
 
 - Product Vision
-- Business Objectives
 - Product Requirements Document (PRD)
 - User Personas & User Journeys
-- Wireframes
+- Wireframes & Product Flows
 - AI System Architecture
-- RAG Workflow
+- Voice Conversation Flows
+- RAG Architecture
 - API Integration Design
 - AI Evaluation Framework
-- Responsible AI & Governance Strategy
-- Monitoring Framework
-- Risk & Mitigation Analysis
+- Responsible AI Strategy
+- Implementation Roadmap
+- Demo Screenshots & Prototype
 
 ---
 
-## Demo
+🎥 **Demo:** https://drive.google.com/file/d/1QK7ozRWwCyOMWgu9-dDiUQZiSB5_ZD9B/view?usp=drive_link
 
-🎥 Demo Video: *(Add Link)*
-
-🖥️ Interactive Prototype: *(Add Link)*
-
----
-
-## Note
-
-This repository provides an executive overview of the concept. The complete Product Requirements Document, detailed workflows, feature specifications, AI architecture, evaluation framework, and implementation roadmap are available upon request.
+> **Note:** This repository provides a high-level overview of the project. The complete PRD, architecture diagrams, implementation details, and supporting documentation are intentionally not included and can be shared upon request.
