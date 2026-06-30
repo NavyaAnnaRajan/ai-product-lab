@@ -1,0 +1,613 @@
+<h2 class="sr-only">Voice AI Recruiter — premium AI-native SaaS prototype, 5 screens</h2>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);background:var(--color-background-tertiary);color:var(--color-text-primary);font-size:13px;line-height:1.5;overflow:hidden}
+.app{display:flex;height:100vh;min-height:660px}
+/* Sidebar */
+.sb{width:52px;flex-shrink:0;background:var(--color-background-primary);border-right:0.5px solid var(--color-border-tertiary);display:flex;flex-direction:column;align-items:center;padding:12px 0;gap:2px}
+.sbl{width:32px;height:32px;background:#7c3aed;border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.si{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--color-text-tertiary);font-size:17px;transition:all .15s;position:relative}
+.si:hover{background:var(--color-background-secondary);color:var(--color-text-secondary)}
+.si.on{background:#EEEDFE;color:#7c3aed}
+.si.on::before{content:'';position:absolute;left:-12px;top:50%;transform:translateY(-50%);width:3px;height:16px;background:#7c3aed;border-radius:0 2px 2px 0}
+/* Main */
+.main{flex:1;display:flex;flex-direction:column;min-width:0;overflow:hidden}
+.topbar{height:40px;flex-shrink:0;background:var(--color-background-primary);border-bottom:0.5px solid var(--color-border-tertiary);display:flex;align-items:center;padding:0 14px;gap:8px}
+.ct{flex:1;overflow-y:auto;padding:10px 12px}
+/* Screens */
+.scr{display:none}.scr.on{display:block}
+.snav{display:flex;gap:3px;margin-bottom:10px;flex-wrap:wrap}
+.nn{padding:4px 10px;border-radius:20px;font-size:11px;font-weight:500;cursor:pointer;border:0.5px solid var(--color-border-tertiary);color:var(--color-text-secondary);transition:all .15s}
+.nn:hover{background:var(--color-background-secondary)}.nn.on{background:#7c3aed;color:#fff;border-color:transparent}
+/* Cards */
+.c{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:10px;padding:11px 13px}
+.cv{background:#EEEDFE;border:0.5px solid #CCC8F6;border-radius:10px;padding:11px 13px}
+.cg{background:#EAF3DE;border:0.5px solid #C0DD97;border-radius:10px;padding:10px 12px}
+.co{background:#FEF3C7;border:0.5px solid #FDE68A;border-radius:10px;padding:10px 12px}
+.cs{background:var(--color-background-secondary);border:0.5px solid var(--color-border-secondary);border-radius:10px;padding:11px 13px}
+/* Layout */
+.row{display:flex;gap:8px;align-items:flex-start}
+.col{display:flex;flex-direction:column;gap:8px}
+.g2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.g5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+/* Type */
+.h1{font-size:15px;font-weight:500;letter-spacing:-.01em}
+.h2{font-size:12px;font-weight:500}
+.sm{font-size:11px;color:var(--color-text-secondary)}
+.xs{font-size:10px;color:var(--color-text-tertiary)}
+.lbl{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--color-text-tertiary);margin-bottom:6px}
+.dvd{height:0.5px;background:var(--color-border-tertiary);margin:8px 0}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:5px 12px;border-radius:7px;font-size:11px;font-weight:500;cursor:pointer;transition:opacity .12s;border:0.5px solid var(--color-border-secondary);background:var(--color-background-secondary);color:var(--color-text-primary);white-space:nowrap}
+.btn:hover{opacity:.75}
+.bv{background:#7c3aed;color:#fff;border-color:transparent}
+.bg{background:#16a34a;color:#fff;border-color:transparent}
+.bd{background:transparent;color:#dc2626;border-color:var(--color-border-secondary)}
+/* Pills */
+.p{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:20px;font-size:10px;font-weight:500;white-space:nowrap}
+.pv{background:#EEEDFE;color:#534AB7}.pg{background:#EAF3DE;color:#166534}.pa{background:#FEF3C7;color:#92400E}.pi{background:var(--color-background-info);color:var(--color-text-info)}.pn{background:var(--color-background-secondary);color:var(--color-text-secondary);border:0.5px solid var(--color-border-tertiary)}
+/* Tags */
+.tag{display:inline-block;padding:3px 9px;border-radius:20px;font-size:10px;font-weight:500;border:0.5px solid var(--color-border-secondary);color:var(--color-text-secondary);margin:2px}
+.tag.on{background:#EEEDFE;color:#534AB7;border-color:#AFA9EC}
+/* Dot */
+.dot{width:6px;height:6px;border-radius:50%;display:inline-block;flex-shrink:0}
+.dg{background:#22c55e}.dv{background:#7c3aed}
+/* Bars */
+.pb{height:4px;background:var(--color-background-secondary);border-radius:2px;overflow:hidden}
+.pf{height:100%;border-radius:2px}
+.fv{background:#7c3aed}.fg{background:#16a34a}.fb{background:#2563eb}.fo{background:#d97706}
+/* KPI */
+.kpi{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-top:2px solid var(--kc,var(--color-border-tertiary));border-radius:10px;padding:11px 13px}
+/* Orb animations */
+@keyframes ring{0%{transform:scale(1);opacity:.5}100%{transform:scale(2.9);opacity:0}}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+/* Waveform */
+@keyframes wfa{0%,100%{transform:scaleY(.1);opacity:.2}50%{transform:scaleY(1);opacity:1}}
+.wb{width:3px;border-radius:2px;transform-origin:center;transform:scaleY(.1)}
+/* Bubbles */
+.bub{padding:8px 12px;border-radius:11px;font-size:12px;line-height:1.65;max-width:84%}
+.bai{background:var(--color-background-secondary);border-bottom-left-radius:3px}
+.bc{background:#EEEDFE;color:#26215C;border-bottom-right-radius:3px}
+@keyframes tp{0%,100%{opacity:.2}50%{opacity:1}}
+/* Activity */
+.af{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.af:last-child{border-bottom:none;padding-bottom:0}
+.af-ic{width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px}
+/* Timeline */
+.tl{display:flex;gap:9px;padding-bottom:8px}
+.tl:last-child{padding-bottom:0}
+.tl-nd{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-ic{width:22px;height:22px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11px}
+.tl-ln{width:1px;background:var(--color-border-tertiary);flex:1;margin:3px 0}
+</style>
+
+<div class="app">
+<!-- Sidebar -->
+<div class="sb">
+  <div class="sbl"><i class="ti ti-microphone-2" style="font-size:14px;color:#fff"></i></div>
+  <div class="si on" id="si0" onclick="go(0)"><i class="ti ti-player-play"></i></div>
+  <div class="si" id="si1" onclick="go(1)"><i class="ti ti-layout-dashboard"></i></div>
+  <div class="si" id="si2" onclick="go(2)"><i class="ti ti-microphone"></i></div>
+  <div class="si" id="si3" onclick="go(3)"><i class="ti ti-chart-dots-3"></i></div>
+  <div class="si" id="si4" onclick="go(4)"><i class="ti ti-eye"></i></div>
+  <div style="width:22px;height:0.5px;background:var(--color-border-tertiary);margin:5px 0"></div>
+  <div class="si"><i class="ti ti-settings"></i></div>
+  <div style="flex:1"></div>
+  <div style="width:28px;height:28px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:500;color:#534AB7">PR</div>
+</div>
+
+<div class="main">
+<div class="topbar">
+  <div style="display:flex;align-items:center;gap:5px;font-size:12px">
+    <span class="xs">VoiceRecruit</span>
+    <i class="ti ti-chevron-right" style="font-size:10px;color:var(--color-text-tertiary)"></i>
+    <strong id="bc" style="font-weight:500">Campaign Setup</strong>
+  </div>
+  <div style="margin-left:auto;display:flex;align-items:center;gap:6px">
+    <span class="p pv"><i class="ti ti-sparkles" style="font-size:9px"></i>AI Active</span>
+    <span class="p pg"><span class="dot dg"></span>3 live</span>
+    <div style="width:0.5px;height:13px;background:var(--color-border-tertiary);margin:0 2px"></div>
+    <i class="ti ti-bell" style="font-size:14px;color:var(--color-text-tertiary);cursor:pointer"></i>
+  </div>
+</div>
+
+<div class="ct">
+<div class="snav">
+  <div class="nn on" onclick="go(0)">1 · Setup</div>
+  <div class="nn" onclick="go(1)">2 · Command Center</div>
+  <div class="nn" onclick="go(2)">3 · Voice Interview</div>
+  <div class="nn" onclick="go(3)">4 · Evaluation</div>
+  <div class="nn" onclick="go(4)">5 · Explainability</div>
+</div>
+
+<!-- ════════════════════════════════
+     S0 · Campaign Setup
+════════════════════════════════ -->
+<div class="scr on" id="s0">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+    <div><div class="h1">New Screening Campaign</div><div class="sm" style="margin-top:2px">Configure AI Voice Recruiter · Senior Product Manager</div></div>
+    <button class="btn bv" onclick="go(1)"><i class="ti ti-sparkles"></i>Start Campaign</button>
+  </div>
+  <div class="row">
+    <!-- Left -->
+    <div class="col" style="flex:1;min-width:0">
+      <!-- Role card with purple header -->
+      <div class="c" style="padding:0;overflow:hidden">
+        <div style="background:#7c3aed;padding:10px 13px;display:flex;align-items:center;gap:10px">
+          <div style="width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-briefcase" style="color:#fff;font-size:15px"></i></div>
+          <div style="flex:1"><div style="font-size:13px;font-weight:500;color:#fff">Senior Product Manager</div><div style="font-size:10px;color:rgba(255,255,255,.7)">JD-2841 · Product Team · Bengaluru / Remote</div></div>
+          <span class="p" style="background:rgba(255,255,255,.2);color:#fff">Active</span>
+        </div>
+        <div style="display:flex">
+          <div style="flex:1;text-align:center;padding:8px 0"><div style="font-size:18px;font-weight:500">147</div><div class="xs">Total</div></div>
+          <div style="width:0.5px;background:var(--color-border-tertiary)"></div>
+          <div style="flex:1;text-align:center;padding:8px 0"><div style="font-size:18px;font-weight:500;color:#7c3aed">89</div><div class="xs">AI filtered</div></div>
+          <div style="width:0.5px;background:var(--color-border-tertiary)"></div>
+          <div style="flex:1;text-align:center;padding:8px 0"><div style="font-size:18px;font-weight:500;color:#16a34a">58</div><div class="xs">To call</div></div>
+        </div>
+      </div>
+      <!-- Skills -->
+      <div class="c">
+        <div class="lbl">Required Skills</div>
+        <span class="tag on">Product Strategy</span><span class="tag on">Roadmapping</span><span class="tag on">Stakeholder Mgmt</span><span class="tag on">Data Analysis</span><span class="tag on">Agile</span><span class="tag">B2B SaaS</span><span class="tag">SQL</span><span class="tag">OKRs</span>
+      </div>
+      <!-- Criteria -->
+      <div class="c">
+        <div class="lbl">Screening Criteria</div>
+        <div class="g2">
+          <div style="background:var(--color-background-secondary);border-radius:8px;padding:7px 10px"><div class="xs">Experience</div><div style="font-size:12px;font-weight:500;margin-top:1px">4–8 years PM</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:8px;padding:7px 10px"><div class="xs">Notice Period</div><div style="font-size:12px;font-weight:500;margin-top:1px">Max 30 days</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:8px;padding:7px 10px"><div class="xs">Salary Range</div><div style="font-size:12px;font-weight:500;margin-top:1px">₹30–50 LPA</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:8px;padding:7px 10px"><div class="xs">Calling Hours</div><div style="font-size:12px;font-weight:500;margin-top:1px">10 AM – 6 PM</div></div>
+        </div>
+      </div>
+      <!-- Predicted outcomes bar -->
+      <div class="c">
+        <div class="lbl">Predicted Outcomes · 58 calls</div>
+        <div style="display:flex;height:8px;border-radius:4px;overflow:hidden;margin-bottom:8px">
+          <div style="width:32%;background:#16a34a"></div>
+          <div style="width:26%;background:#7c3aed"></div>
+          <div style="width:22%;background:#d97706"></div>
+          <div style="flex:1;background:var(--color-border-tertiary)"></div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <div style="display:flex;align-items:center;gap:4px"><div style="width:8px;height:8px;border-radius:2px;background:#16a34a;flex-shrink:0"></div><span class="xs">Qualified 32%</span></div>
+          <div style="display:flex;align-items:center;gap:4px"><div style="width:8px;height:8px;border-radius:2px;background:#7c3aed;flex-shrink:0"></div><span class="xs">Rejected 26%</span></div>
+          <div style="display:flex;align-items:center;gap:4px"><div style="width:8px;height:8px;border-radius:2px;background:#d97706;flex-shrink:0"></div><span class="xs">Salary mismatch 22%</span></div>
+          <div style="display:flex;align-items:center;gap:4px"><div style="width:8px;height:8px;border-radius:2px;background:var(--color-border-tertiary);flex-shrink:0"></div><span class="xs">No response 20%</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Right: AI Plan -->
+    <div class="col" style="width:232px;flex-shrink:0">
+      <div class="cv">
+        <div style="display:flex;align-items:center;gap:7px;margin-bottom:11px">
+          <div style="width:24px;height:24px;border-radius:7px;background:#7c3aed;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-sparkles" style="color:#fff;font-size:11px"></i></div>
+          <div class="h2" style="color:#26215C">AI Interview Plan</div>
+        </div>
+        <!-- Steps -->
+        <div>
+          <div style="display:flex;gap:9px;padding-bottom:7px"><div style="display:flex;flex-direction:column;align-items:center"><div style="width:19px;height:19px;border-radius:50%;background:#7c3aed;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-check" style="font-size:9px;color:#fff"></i></div><div style="width:1px;background:#CCC8F6;flex:1;margin:2px 0"></div></div><div style="padding-top:1px"><div style="font-size:11px;font-weight:500;color:#26215C">Introduction</div><div class="xs" style="color:#534AB7">Availability check · 60s</div></div></div>
+          <div style="display:flex;gap:9px;padding-bottom:7px"><div style="display:flex;flex-direction:column;align-items:center"><div style="width:19px;height:19px;border-radius:50%;background:#7c3aed;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-check" style="font-size:9px;color:#fff"></i></div><div style="width:1px;background:#CCC8F6;flex:1;margin:2px 0"></div></div><div style="padding-top:1px"><div style="font-size:11px;font-weight:500;color:#26215C">Skills Assessment</div><div class="xs" style="color:#534AB7">Product + Stakeholder · 3m</div></div></div>
+          <div style="display:flex;gap:9px;padding-bottom:7px"><div style="display:flex;flex-direction:column;align-items:center"><div style="width:19px;height:19px;border-radius:50%;background:#7c3aed;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-check" style="font-size:9px;color:#fff"></i></div><div style="width:1px;background:#CCC8F6;flex:1;margin:2px 0"></div></div><div style="padding-top:1px"><div style="font-size:11px;font-weight:500;color:#26215C">Experience Validation</div><div class="xs" style="color:#534AB7">Domain & ownership · 2m</div></div></div>
+          <div style="display:flex;gap:9px;padding-bottom:7px"><div style="display:flex;flex-direction:column;align-items:center"><div style="width:19px;height:19px;border-radius:50%;background:#7c3aed;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-check" style="font-size:9px;color:#fff"></i></div><div style="width:1px;background:#CCC8F6;flex:1;margin:2px 0"></div></div><div style="padding-top:1px"><div style="font-size:11px;font-weight:500;color:#26215C">Salary Alignment</div><div class="xs" style="color:#534AB7">Expectation check · 90s</div></div></div>
+          <div style="display:flex;gap:9px"><div style="display:flex;flex-direction:column;align-items:center"><div style="width:19px;height:19px;border-radius:50%;background:#7c3aed;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-check" style="font-size:9px;color:#fff"></i></div></div><div style="padding-top:1px"><div style="font-size:11px;font-weight:500;color:#26215C">Availability Check</div><div class="xs" style="color:#534AB7">Notice & location · 60s</div></div></div>
+        </div>
+        <div class="dvd" style="border-color:#CCC8F6"></div>
+        <div style="display:flex;gap:0">
+          <div style="flex:1;text-align:center"><div style="font-size:15px;font-weight:500;color:#26215C">10m</div><div class="xs" style="color:#534AB7">est.</div></div>
+          <div style="width:0.5px;background:#CCC8F6"></div>
+          <div style="flex:1;text-align:center"><div style="font-size:15px;font-weight:500;color:#16a34a">32%</div><div class="xs" style="color:#534AB7">qualify</div></div>
+          <div style="width:0.5px;background:#CCC8F6"></div>
+          <div style="flex:1;text-align:center"><div style="font-size:15px;font-weight:500;color:#26215C">14h</div><div class="xs" style="color:#534AB7">saved</div></div>
+        </div>
+      </div>
+      <button class="btn bv" style="width:100%;padding:9px" onclick="go(1)"><i class="ti ti-sparkles"></i>Start AI Campaign</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     S1 · Command Center
+════════════════════════════════ -->
+<div class="scr" id="s1">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+    <div><div style="display:flex;align-items:center;gap:8px"><div class="h1">AI Command Center</div><span class="p pg"><span class="dot dg"></span>Running</span></div><div class="sm" style="margin-top:2px">Senior PM · JD-2841 · 2h 14m · 3 concurrent calls</div></div>
+    <div style="display:flex;gap:6px"><button class="btn"><i class="ti ti-player-pause"></i>Pause</button><button class="btn bv" onclick="go(2)"><i class="ti ti-eye"></i>Watch Live Call</button></div>
+  </div>
+
+  <!-- Live call banner -->
+  <div class="cs" style="margin-bottom:8px;border-color:#7c3aed30">
+    <div style="display:flex;align-items:center;gap:10px">
+      <span class="p pg" style="flex-shrink:0"><span class="dot dg"></span>LIVE</span>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:12px;font-weight:500">Aria is interviewing <strong>Rahul Sharma</strong></div>
+        <div class="xs">04:12 elapsed · Question 3 of 8 · Topic: Stakeholder Management</div>
+      </div>
+      <div id="cmd-wf" style="display:flex;align-items:center;gap:2px;height:24px;flex-shrink:0"></div>
+      <button class="btn" style="flex-shrink:0" onclick="go(2)"><i class="ti ti-arrow-right"></i>Watch</button>
+    </div>
+  </div>
+
+  <!-- KPI row -->
+  <div class="g4" style="margin-bottom:8px">
+    <div class="kpi" style="--kc:#7c3aed"><div style="font-size:26px;font-weight:500;letter-spacing:-.02em;color:#7c3aed;line-height:1;margin-bottom:3px">41</div><div class="sm">Calls completed</div><div style="margin-top:5px"><div class="pb"><div class="pf fv" style="width:71%"></div></div><div class="xs" style="margin-top:2px">71% of 58</div></div></div>
+    <div class="kpi" style="--kc:#16a34a"><div style="font-size:26px;font-weight:500;letter-spacing:-.02em;color:#16a34a;line-height:1;margin-bottom:3px">19</div><div class="sm">Qualified</div><div style="margin-top:5px"><span class="p pg" style="font-size:9px">46% rate</span></div></div>
+    <div class="kpi" style="--kc:#2563eb"><div style="font-size:26px;font-weight:500;letter-spacing:-.02em;color:#2563eb;line-height:1;margin-bottom:3px">7</div><div class="sm">Interviews set</div><div style="margin-top:5px"><span class="p pi" style="font-size:9px">Next 2 days: 4</span></div></div>
+    <div class="kpi" style="--kc:#d97706"><div style="font-size:26px;font-weight:500;letter-spacing:-.02em;color:#d97706;line-height:1;margin-bottom:3px">14h</div><div class="sm">Time saved</div><div style="margin-top:5px"><span class="p pa" style="font-size:9px">vs manual calling</span></div></div>
+  </div>
+
+  <div class="row">
+    <!-- Activity feed -->
+    <div class="col" style="flex:1.2;min-width:0">
+      <div class="c">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px"><div class="h2">Live Activity</div><span class="p pg" style="font-size:9px"><span class="dot dg"></span>Real-time</span></div>
+        <div>
+          <div class="af"><div class="af-ic" style="background:#EEEDFE"><i class="ti ti-phone" style="color:#7c3aed"></i></div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500">AI calling Rahul Sharma</div><div class="xs">Now · Q3 in progress · Stakeholder</div></div><span class="p pi" style="font-size:9px">In call</span></div>
+          <div class="af"><div class="af-ic" style="background:#EAF3DE"><i class="ti ti-circle-check" style="color:#16a34a"></i></div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500">Priya Nair qualified · 84/100</div><div class="xs">2 min ago · Scheduling interview</div></div><span class="p pg" style="font-size:9px">Qualified</span></div>
+          <div class="af"><div class="af-ic" style="background:#EEEDFE"><i class="ti ti-calendar" style="color:#7c3aed"></i></div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500">Interview scheduled · Ananya Reddy</div><div class="xs">5 min ago · 24 Jun 11:00 AM</div></div><span class="p pv" style="font-size:9px">Scheduled</span></div>
+          <div class="af"><div class="af-ic" style="background:#EAF3DE"><i class="ti ti-circle-check" style="color:#16a34a"></i></div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500">Karan Mehta qualified · 91/100</div><div class="xs">8 min ago · High priority flagged</div></div><span class="p pg" style="font-size:9px">Qualified</span></div>
+          <div class="af"><div class="af-ic" style="background:var(--color-background-secondary)"><i class="ti ti-phone-off" style="color:var(--color-text-tertiary)"></i></div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500">No answer · Siddharth Jain</div><div class="xs">11 min ago · Retry in 4 hours</div></div><span class="p pn" style="font-size:9px">Retry</span></div>
+          <div class="af"><div class="af-ic" style="background:#FEF3C7"><i class="ti ti-currency-rupee" style="color:#d97706"></i></div><div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500">Salary mismatch · Rohan Verma</div><div class="xs">14 min ago · Expects ₹55 LPA</div></div><span class="p pa" style="font-size:9px">Out</span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Right: Insights + Funnel -->
+    <div class="col" style="width:210px;flex-shrink:0">
+      <div class="c">
+        <div class="lbl" style="margin-bottom:7px">AI Insights</div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px">
+          <span style="padding:3px 8px;border-radius:20px;font-size:10px;background:#FEF3C7;color:#92400E;font-weight:500">7 rejected: salary</span>
+          <span style="padding:3px 8px;border-radius:20px;font-size:10px;background:#EEEDFE;color:#534AB7;font-weight:500">Product Strategy weakest</span>
+          <span style="padding:3px 8px;border-radius:20px;font-size:10px;background:#EAF3DE;color:#166534;font-weight:500">LinkedIn → highest success</span>
+          <span style="padding:3px 8px;border-radius:20px;font-size:10px;background:#EEEDFE;color:#534AB7;font-weight:500">3 high priority flagged</span>
+        </div>
+      </div>
+      <div class="c">
+        <div class="lbl" style="margin-bottom:7px">Campaign Funnel</div>
+        <div>
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:4px"><div style="width:100%;height:20px;background:#EEEDFE;border-radius:5px;display:flex;align-items:center;padding:0 8px;font-size:10px;font-weight:500;color:#534AB7">147 candidates</div></div>
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:4px"><div style="width:84%;height:20px;background:#EEEDFE;border-radius:5px;display:flex;align-items:center;padding:0 8px;font-size:10px;font-weight:500;color:#534AB7">89 contacted</div></div>
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:4px"><div style="width:60%;height:20px;background:#EAF3DE;border-radius:5px;display:flex;align-items:center;padding:0 8px;font-size:10px;font-weight:500;color:#166534">41 qualified</div></div>
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:4px"><div style="width:38%;height:20px;background:#EAF3DE;border-radius:5px;display:flex;align-items:center;padding:0 8px;font-size:10px;font-weight:500;color:#166534">19 scheduled</div></div>
+          <div style="display:flex;align-items:center;gap:7px"><div style="width:16%;height:20px;background:#EAF3DE;border-radius:5px;display:flex;align-items:center;padding:0 8px;font-size:10px;font-weight:500;color:#166534">4 ready</div></div>
+        </div>
+      </div>
+      <div class="c">
+        <div style="display:flex;justify-content:space-between;margin-bottom:5px"><span class="sm">Outcomes</span></div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div><div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:2px"><span class="xs">Qualified</span><span style="font-weight:500;color:#16a34a">19</span></div><div class="pb"><div class="pf fg" style="width:46%"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:2px"><span class="xs">Not interested</span><span style="font-weight:500">8</span></div><div class="pb"><div class="pf" style="width:20%;background:var(--color-text-secondary)"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:2px"><span class="xs">Salary mismatch</span><span style="font-weight:500">7</span></div><div class="pb"><div class="pf fo" style="width:17%"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:2px"><span class="xs">No answer</span><span style="font-weight:500">5</span></div><div class="pb"><div class="pf fb" style="width:12%"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     S2 · Live Voice Interview (HERO)
+════════════════════════════════ -->
+<div class="scr" id="s2">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+    <div style="display:flex;align-items:center;gap:8px"><div class="h1">Live Interview</div><span class="p pg"><span class="dot dg"></span>Aria is speaking</span><span class="xs">14:22 · Q3/5</span></div>
+    <div style="display:flex;gap:6px"><button class="btn"><i class="ti ti-player-pause"></i>Pause</button><button class="btn bd" onclick="go(3)"><i class="ti ti-player-stop"></i>End & Evaluate</button></div>
+  </div>
+
+  <div class="row" style="align-items:flex-start">
+    <!-- Voice center -->
+    <div class="col" style="flex:1.1;min-width:0">
+      <!-- Orb panel -->
+      <div class="cs" style="text-align:center;padding:20px 16px">
+        <!-- Participant row -->
+        <div style="display:flex;align-items:center;justify-content:center;gap:20px">
+          <div style="opacity:.32;text-align:center">
+            <div style="width:38px;height:38px;border-radius:50%;background:var(--color-background-primary);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;color:var(--color-text-secondary);margin:0 auto 4px">RS</div>
+            <div class="xs">Rahul</div>
+          </div>
+          <!-- THE ORB -->
+          <div style="position:relative;width:160px;height:160px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <div style="position:absolute;width:104px;height:104px;border-radius:50%;border:1.5px solid #7c3aed;animation:ring 2.1s ease-out infinite;animation-delay:0s"></div>
+            <div style="position:absolute;width:104px;height:104px;border-radius:50%;border:1.5px solid #7c3aed;animation:ring 2.1s ease-out infinite;animation-delay:.7s"></div>
+            <div style="position:absolute;width:104px;height:104px;border-radius:50%;border:1px solid #7c3aed;animation:ring 2.1s ease-out infinite;animation-delay:1.4s"></div>
+            <div style="width:104px;height:104px;border-radius:50%;background:#7c3aed;display:flex;align-items:center;justify-content:center;z-index:1;animation:breathe 3s ease-in-out infinite">
+              <i class="ti ti-robot" style="font-size:40px;color:#fff"></i>
+            </div>
+          </div>
+          <div style="text-align:center">
+            <div style="width:38px;height:38px;border-radius:50%;background:#EEEDFE;border:2px solid #7c3aed;display:flex;align-items:center;justify-content:center;margin:0 auto 4px"><i class="ti ti-robot" style="font-size:16px;color:#7c3aed"></i></div>
+            <div style="font-size:10px;color:#534AB7;font-weight:500">Aria · AI</div>
+          </div>
+        </div>
+        <!-- Waveform -->
+        <div id="hero-wf" style="display:flex;align-items:center;justify-content:center;gap:3px;height:36px;margin:10px 0 6px"></div>
+        <div style="font-size:12px;font-weight:500;color:#534AB7">Aria is speaking</div>
+        <div class="xs" style="margin-top:2px">Question 3 · Stakeholder management</div>
+      </div>
+
+      <!-- Transcript -->
+      <div class="c">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px"><div class="h2">Transcript</div><span class="xs">Live · auto-scroll</span></div>
+        <div style="display:flex;flex-direction:column;gap:7px;max-height:230px;overflow-y:auto">
+          <div><div class="xs" style="margin-bottom:3px;padding-left:2px">Aria · 11:05</div><div class="bub bai">Tell me about your product management experience. How long have you been in this role?</div></div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end"><div class="xs" style="margin-bottom:3px;padding-right:2px">Rahul · 11:08</div><div class="bub bc">I've been a PM for 5 years — B2C fintech to start, then my current B2B SaaS HR platform.</div></div>
+          <div><div class="xs" style="margin-bottom:3px;padding-left:2px">Aria · 12:40</div><div class="bub bai">How do you manage stakeholder alignment when priorities conflict?</div></div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end"><div class="xs" style="margin-bottom:3px;padding-right:2px">Rahul · 12:44</div><div class="bub bc">I rely on data — usage metrics, revenue impact, customer feedback. Quarterly roadmap reviews eliminate surprises.</div></div>
+          <div><div class="xs" style="margin-bottom:3px;padding-left:2px">Aria · 14:22</div><div class="bub bai">Tell me about a time you pushed back on a senior leader's product decision.</div></div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end"><div class="xs" style="margin-bottom:3px;padding-right:2px">now</div><div class="bub bc" style="padding:9px 14px;display:flex;gap:4px;align-items:center"><div style="width:6px;height:6px;border-radius:50%;background:#7c3aed;animation:tp .8s infinite"></div><div style="width:6px;height:6px;border-radius:50%;background:#7c3aed;animation:tp .8s .17s infinite"></div><div style="width:6px;height:6px;border-radius:50%;background:#7c3aed;animation:tp .8s .34s infinite"></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Analysis panel -->
+    <div class="col" style="width:196px;flex-shrink:0">
+      <div class="cv" style="text-align:center;padding:14px">
+        <div class="xs" style="color:#534AB7;text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px">Live Score</div>
+        <div style="font-size:44px;font-weight:500;color:#26215C;letter-spacing:-.04em;line-height:1">79</div>
+        <div style="font-size:11px;color:#7c3aed;margin-top:3px">Updating in real-time</div>
+      </div>
+      <div class="c">
+        <div class="h2" style="margin-bottom:7px">Dimensions</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div><div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:2px"><span class="xs">Product thinking</span><span style="font-weight:500;color:#16a34a">88</span></div><div class="pb"><div class="pf fg" style="width:88%"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:2px"><span class="xs">Communication</span><span style="font-weight:500">76</span></div><div class="pb"><div class="pf fb" style="width:76%"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:2px"><span class="xs">Stakeholder</span><span style="font-weight:500;color:#7c3aed">…</span></div><div class="pb"><div class="pf fv" style="width:0"></div></div></div>
+        </div>
+      </div>
+      <div class="c">
+        <div class="h2" style="margin-bottom:7px">Progress · 3/5</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="display:flex;align-items:center;gap:6px;font-size:11px"><i class="ti ti-circle-check" style="color:#16a34a;font-size:13px"></i>Intro & availability</div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:11px"><i class="ti ti-circle-check" style="color:#16a34a;font-size:13px"></i>PM experience</div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:#534AB7;font-weight:500"><i class="ti ti-circle" style="color:#7c3aed;font-size:13px"></i>Stakeholder ←</div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:11px;opacity:.35"><i class="ti ti-circle" style="font-size:13px"></i>Notice & salary</div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:11px;opacity:.35"><i class="ti ti-circle" style="font-size:13px"></i>Close</div>
+        </div>
+      </div>
+      <div class="c">
+        <div class="h2" style="margin-bottom:7px">Candidate Snapshot</div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div style="display:flex;justify-content:space-between;font-size:11px"><span class="xs">Experience</span><span style="font-weight:500">5 yrs PM</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:11px"><span class="xs">Salary ask</span><span style="font-weight:500;color:#16a34a">₹40 LPA ✓</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:11px"><span class="xs">Notice</span><span style="font-weight:500;color:#16a34a">30 days ✓</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:11px"><span class="xs">Location</span><span style="font-weight:500">Bengaluru</span></div>
+        </div>
+      </div>
+      <div class="c">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><div class="h2">Confidence</div><span style="font-size:13px;font-weight:500;color:#7c3aed">81%</span></div>
+        <div style="height:5px;background:var(--color-background-secondary);border-radius:3px;overflow:hidden"><div style="height:100%;border-radius:3px;background:#7c3aed;width:81%"></div></div>
+        <div class="xs" style="margin-top:3px">2/5 questions</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     S3 · Candidate Evaluation
+════════════════════════════════ -->
+<div class="scr" id="s3">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+    <div><div class="h1">Candidate Evaluation</div><div class="sm" style="margin-top:2px">Rahul Sharma · Interview completed · 18m 42s</div></div>
+    <div style="display:flex;gap:6px"><button class="btn" onclick="go(4)"><i class="ti ti-eye"></i>Explainability</button><button class="btn bv"><i class="ti ti-arrow-right"></i>Move Forward</button></div>
+  </div>
+
+  <!-- Candidate overview card -->
+  <div class="c" style="padding:0;overflow:hidden;margin-bottom:8px">
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 14px">
+      <div style="width:44px;height:44px;border-radius:50%;background:#EEEDFE;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:500;color:#534AB7;flex-shrink:0">RS</div>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:14px;font-weight:500">Rahul Sharma</div>
+        <div class="xs">Senior Product Manager · B2B SaaS Platform · 5 yrs exp · Bengaluru</div>
+        <div style="display:flex;gap:5px;margin-top:4px"><span class="p pn" style="font-size:9px">₹40 LPA</span><span class="p pg" style="font-size:9px">30d notice</span><span class="p pv" style="font-size:9px">Open to hybrid</span></div>
+      </div>
+      <div style="text-align:center;flex-shrink:0;padding:0 14px">
+        <div style="font-size:30px;font-weight:500;color:#7c3aed;letter-spacing:-.02em;line-height:1">87</div>
+        <div class="xs" style="margin-top:1px">/ 100</div>
+      </div>
+      <div style="flex-shrink:0">
+        <div class="cg" style="display:flex;align-items:center;gap:6px;padding:8px 12px">
+          <i class="ti ti-circle-check" style="color:#166534;font-size:15px"></i>
+          <div><div style="font-size:11px;font-weight:500;color:#14532D">Recommended</div><div class="xs" style="color:#166534">Hiring Manager Round</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skill rings row -->
+  <div class="c" style="margin-bottom:8px">
+    <div class="lbl">Competency Assessment</div>
+    <div class="g5" id="skill-rings"></div>
+  </div>
+
+  <div class="row">
+    <div class="col" style="flex:1;min-width:0">
+      <div class="c" style="border-left:2px solid #7c3aed">
+        <div style="display:flex;align-items:center;gap:7px;margin-bottom:8px"><i class="ti ti-sparkles" style="color:#7c3aed;font-size:14px"></i><div class="h2">AI Summary</div></div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div style="display:flex;gap:7px;font-size:11px"><i class="ti ti-check" style="color:#16a34a;font-size:13px;flex-shrink:0;margin-top:1px"></i>Strong PM background with 5 years across fintech and B2B SaaS</div>
+          <div style="display:flex;gap:7px;font-size:11px"><i class="ti ti-check" style="color:#16a34a;font-size:13px;flex-shrink:0;margin-top:1px"></i>Excellent stakeholder management — data-driven conflict resolution</div>
+          <div style="display:flex;gap:7px;font-size:11px"><i class="ti ti-check" style="color:#16a34a;font-size:13px;flex-shrink:0;margin-top:1px"></i>Salary expectation within budget; 30-day notice period</div>
+          <div style="display:flex;gap:7px;font-size:11px"><i class="ti ti-alert-triangle" style="color:#d97706;font-size:13px;flex-shrink:0;margin-top:1px"></i>Leadership moderate — IC Senior PM appropriate; flag if people management critical</div>
+        </div>
+      </div>
+      <!-- Quick checks -->
+      <div class="c" style="padding:0;overflow:hidden">
+        <div style="display:flex">
+          <div style="flex:1;text-align:center;padding:8px 0;border-right:0.5px solid var(--color-border-tertiary)"><div style="color:#16a34a;font-weight:500;font-size:13px">✓</div><div class="xs">Salary ₹40L</div></div>
+          <div style="flex:1;text-align:center;padding:8px 0;border-right:0.5px solid var(--color-border-tertiary)"><div style="color:#16a34a;font-weight:500;font-size:13px">✓</div><div class="xs">Notice 30d</div></div>
+          <div style="flex:1;text-align:center;padding:8px 0;border-right:0.5px solid var(--color-border-tertiary)"><div style="color:#16a34a;font-weight:500;font-size:13px">✓</div><div class="xs">5 yrs exp</div></div>
+          <div style="flex:1;text-align:center;padding:8px 0"><div style="color:#d97706;font-weight:500;font-size:13px">~</div><div class="xs">B2B partial</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="col" style="width:172px;flex-shrink:0">
+      <div class="c">
+        <div class="h2" style="margin-bottom:8px">Actions</div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <button class="btn bg" style="width:100%"><i class="ti ti-arrow-right"></i>Move Forward</button>
+          <button class="btn" style="width:100%"><i class="ti ti-calendar"></i>Schedule Interview</button>
+          <button class="btn" style="width:100%"><i class="ti ti-clock-pause"></i>Hold</button>
+          <button class="btn bd" style="width:100%"><i class="ti ti-x"></i>Reject</button>
+        </div>
+      </div>
+      <div class="cv" style="padding:12px">
+        <div class="xs" style="color:#534AB7;margin-bottom:3px">Qualification Score</div>
+        <div style="font-size:32px;font-weight:500;color:#26215C;letter-spacing:-.03em;line-height:1">87<span style="font-size:13px;color:#7c3aed">/100</span></div>
+        <div class="xs" style="color:#534AB7;margin-top:3px">Top 12% · 58 candidates</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     S4 · Explainability
+════════════════════════════════ -->
+<div class="scr" id="s4">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+    <div><div class="h1">Explainability & Decision</div><div class="sm" style="margin-top:2px">Why was Rahul Sharma recommended? · Score 87/100</div></div>
+    <div style="display:flex;gap:6px"><button class="btn"><i class="ti ti-user-check"></i>Request Review</button><button class="btn bg"><i class="ti ti-circle-check"></i>Approve</button></div>
+  </div>
+
+  <!-- Driver cards 2x2 -->
+  <div class="g2" style="margin-bottom:8px">
+    <div class="c" style="border-top:2px solid #16a34a">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <div style="width:26px;height:26px;border-radius:7px;background:#EAF3DE;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-briefcase" style="color:#16a34a;font-size:13px"></i></div>
+        <div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500">Product Experience</div></div>
+        <span style="font-size:14px;font-weight:500;color:#16a34a;flex-shrink:0">+28</span>
+      </div>
+      <div class="xs" style="margin-bottom:5px">5 years PM in SaaS — directly matches 4–8yr requirement</div>
+      <div style="height:4px;background:var(--color-background-secondary);border-radius:2px;overflow:hidden"><div style="width:28%;height:100%;background:#16a34a;border-radius:2px"></div></div>
+    </div>
+    <div class="c" style="border-top:2px solid #16a34a">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <div style="width:26px;height:26px;border-radius:7px;background:#EAF3DE;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-users" style="color:#16a34a;font-size:13px"></i></div>
+        <div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500">Communication Quality</div></div>
+        <span style="font-size:14px;font-weight:500;color:#16a34a;flex-shrink:0">+24</span>
+      </div>
+      <div class="xs" style="margin-bottom:5px">Stakeholder 91/100 — structured data-driven conflict resolution</div>
+      <div style="height:4px;background:var(--color-background-secondary);border-radius:2px;overflow:hidden"><div style="width:24%;height:100%;background:#16a34a;border-radius:2px"></div></div>
+    </div>
+    <div class="c" style="border-top:2px solid #16a34a">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <div style="width:26px;height:26px;border-radius:7px;background:#EAF3DE;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-currency-rupee" style="color:#16a34a;font-size:13px"></i></div>
+        <div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500">Salary Alignment</div></div>
+        <span style="font-size:14px;font-weight:500;color:#16a34a;flex-shrink:0">+18</span>
+      </div>
+      <div class="xs" style="margin-bottom:5px">Expects ₹40 LPA — within ₹30–50 LPA budget, no friction</div>
+      <div style="height:4px;background:var(--color-background-secondary);border-radius:2px;overflow:hidden"><div style="width:18%;height:100%;background:#16a34a;border-radius:2px"></div></div>
+    </div>
+    <div class="c" style="border-top:2px solid #16a34a">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <div style="width:26px;height:26px;border-radius:7px;background:#EAF3DE;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-building" style="color:#16a34a;font-size:13px"></i></div>
+        <div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500">Domain Experience</div></div>
+        <span style="font-size:14px;font-weight:500;color:#16a34a;flex-shrink:0">+17</span>
+      </div>
+      <div class="xs" style="margin-bottom:5px">B2B SaaS HR/payroll — direct domain overlap with this role</div>
+      <div style="height:4px;background:var(--color-background-secondary);border-radius:2px;overflow:hidden"><div style="width:17%;height:100%;background:#16a34a;border-radius:2px"></div></div>
+    </div>
+  </div>
+
+  <!-- Risks row -->
+  <div class="g2" style="margin-bottom:8px">
+    <div class="co" style="display:flex;gap:10px;align-items:flex-start">
+      <div style="width:26px;height:26px;border-radius:7px;background:#FEF3C7;border:1px solid #FDE68A;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-alert-triangle" style="color:#d97706;font-size:12px"></i></div>
+      <div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500;color:#92400E;margin-bottom:2px">Limited B2B Enterprise Exposure</div><div class="xs" style="color:#92400E">Mostly SMB customers. May need ramp-up time on enterprise sales cycles.</div><div style="margin-top:5px"><span class="p pa" style="font-size:9px">Impact: Medium</span></div></div>
+    </div>
+    <div class="co" style="display:flex;gap:10px;align-items:flex-start">
+      <div style="width:26px;height:26px;border-radius:7px;background:#FEF3C7;border:1px solid #FDE68A;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-alert-triangle" style="color:#d97706;font-size:12px"></i></div>
+      <div style="flex:1;min-width:0"><div style="font-size:11px;font-weight:500;color:#92400E;margin-bottom:2px">No International Experience</div><div class="xs" style="color:#92400E">All India-focused. Role involves SEA coordination — probe in next round.</div><div style="margin-top:5px"><span class="p pa" style="font-size:9px">Impact: Low</span></div></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Confidence + Timeline -->
+    <div class="col" style="flex:1;min-width:0">
+      <div class="c">
+        <div class="lbl">Confidence Dashboard</div>
+        <div id="conf-rings" style="display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap"></div>
+      </div>
+    </div>
+    <div class="col" style="flex:1;min-width:0">
+      <div class="c">
+        <div class="lbl">AI Audit Timeline</div>
+        <div>
+          <div class="tl"><div class="tl-nd"><div class="tl-ic" style="background:#EAF3DE"><i class="ti ti-check" style="color:#16a34a;font-size:11px"></i></div><div class="tl-ln"></div></div><div style="padding-top:2px"><div style="font-size:11px;font-weight:500">Interview Completed</div><div class="xs">18:42 · 5 questions · Full transcript</div></div></div>
+          <div class="tl"><div class="tl-nd"><div class="tl-ic" style="background:#EAF3DE"><i class="ti ti-check" style="color:#16a34a;font-size:11px"></i></div><div class="tl-ln"></div></div><div style="padding-top:2px"><div style="font-size:11px;font-weight:500">Scoring Generated</div><div class="xs">Model v2.4.1 · 5 dimensions weighted</div></div></div>
+          <div class="tl"><div class="tl-nd"><div class="tl-ic" style="background:#EAF3DE"><i class="ti ti-check" style="color:#16a34a;font-size:11px"></i></div><div class="tl-ln"></div></div><div style="padding-top:2px"><div style="font-size:11px;font-weight:500">Bias Validation Run</div><div class="xs">No protected attributes influenced score</div></div></div>
+          <div class="tl"><div class="tl-nd"><div class="tl-ic" style="background:#EEEDFE"><i class="ti ti-user" style="color:#7c3aed;font-size:11px"></i></div><div class="tl-ln"></div></div><div style="padding-top:2px"><div style="font-size:11px;font-weight:500">Human Review Required</div><div class="xs">Awaiting recruiter decision</div></div></div>
+          <div class="tl"><div class="tl-nd"><div class="tl-ic" style="background:var(--color-background-secondary)"><i class="ti ti-clock" style="color:var(--color-text-tertiary);font-size:11px"></i></div></div><div style="padding-top:2px"><div style="font-size:11px;color:var(--color-text-secondary)">Recruiter Decision Pending</div><div class="xs">Your action required</div></div></div>
+        </div>
+      </div>
+    </div>
+    <!-- Actions -->
+    <div class="col" style="width:168px;flex-shrink:0">
+      <div style="background:#EEEDFE;border:0.5px solid #AFA9EC;border-radius:10px;padding:12px 13px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><i class="ti ti-shield" style="color:#7c3aed;font-size:18px;flex-shrink:0"></i><div style="font-size:12px;font-weight:500;color:#26215C">AI Assists.<br>Humans Decide.</div></div>
+        <div class="xs" style="color:#534AB7">All hiring decisions require recruiter confirmation.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:5px">
+        <button class="btn bg" style="width:100%"><i class="ti ti-circle-check"></i>Approve</button>
+        <button class="btn" style="width:100%"><i class="ti ti-user-check"></i>Request Review</button>
+        <button class="btn bd" style="width:100%"><i class="ti ti-x"></i>Reject</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /ct -->
+</div><!-- /main -->
+</div><!-- /app -->
+
+<script>
+const labels=['Campaign Setup','Command Center','Voice Interview','Candidate Evaluation','Explainability'];
+function go(i){
+  for(let j=0;j<5;j++){
+    document.getElementById('s'+j).classList.toggle('on',j===i);
+    document.querySelectorAll('.nn')[j].classList.toggle('on',j===i);
+    document.getElementById('si'+j).classList.toggle('on',j===i);
+  }
+  document.getElementById('bc').textContent=labels[i];
+}
+
+function makeWave(el,color,count,on){
+  if(!el)return;el.innerHTML='';
+  const p=[3,5,9,14,20,26,32,38,42,44,42,38,32,26,20,14,9,5,3,6,12,18,26,34,38,34,26,18,12,6];
+  for(let i=0;i<count;i++){
+    const b=document.createElement('div');
+    b.className='wb';b.style.height=p[i%p.length]+'px';b.style.background=color;
+    if(on){b.style.animation=`wfa ${(.45+Math.random()*.65).toFixed(2)}s ease-in-out infinite`;b.style.animationDelay=(i*.065).toFixed(2)+'s';}
+    el.appendChild(b);
+  }
+}
+makeWave(document.getElementById('cmd-wf'),'#7c3aed',16,true);
+makeWave(document.getElementById('hero-wf'),'#7c3aed',26,true);
+
+// Skill rings (S3)
+const skills=[{s:88,l:'Product\nThinking',c:'#16a34a'},{s:79,l:'Communi-\ncation',c:'#2563eb'},{s:91,l:'Stakeholder\nMgmt',c:'#7c3aed'},{s:68,l:'Leader-\nship',c:'#d97706'},{s:74,l:'Technical\nKnow.',c:'#2563eb'}];
+const sr=document.getElementById('skill-rings');
+if(sr){
+  skills.forEach(sk=>{
+    const r=24,ci=2*Math.PI*r,off=ci-(sk.s/100)*ci;
+    const d=document.createElement('div');
+    d.style.cssText='display:flex;flex-direction:column;align-items:center;text-align:center';
+    d.innerHTML=`<div style="position:relative;display:inline-flex;align-items:center;justify-content:center;margin-bottom:4px"><svg width="62" height="62" viewBox="0 0 62 62" aria-hidden="true"><circle cx="31" cy="31" r="${r}" fill="none" stroke="var(--color-border-tertiary)" stroke-width="5"/><circle cx="31" cy="31" r="${r}" fill="none" stroke="${sk.c}" stroke-width="5" stroke-dasharray="${ci.toFixed(1)}" stroke-dashoffset="${off.toFixed(1)}" stroke-linecap="round" transform="rotate(-90 31 31)"/></svg><div style="position:absolute;font-size:14px;font-weight:500;color:${sk.c}">${sk.s}</div></div><div style="font-size:9px;color:var(--color-text-secondary);max-width:64px;line-height:1.3">${sk.l.replace(/\n/g,'<br>')}</div>`;
+    sr.appendChild(d);
+  });
+}
+
+// Confidence rings (S4)
+const confs=[{s:82,l:'Recom-\nmendation',c:'#7c3aed'},{s:94,l:'Data\nComplete',c:'#16a34a'},{s:100,l:'Bias\nCheck',c:'#16a34a'},{s:88,l:'Transcript\nQuality',c:'#2563eb'}];
+const cr=document.getElementById('conf-rings');
+if(cr){
+  confs.forEach(cf=>{
+    const r=18,ci=2*Math.PI*r,off=ci-(cf.s/100)*ci;
+    const d=document.createElement('div');
+    d.style.cssText='display:flex;flex-direction:column;align-items:center;text-align:center';
+    d.innerHTML=`<div style="position:relative;display:inline-flex;align-items:center;justify-content:center;margin-bottom:3px"><svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="${r}" fill="none" stroke="var(--color-border-tertiary)" stroke-width="4"/><circle cx="24" cy="24" r="${r}" fill="none" stroke="${cf.c}" stroke-width="4" stroke-dasharray="${ci.toFixed(1)}" stroke-dashoffset="${off.toFixed(1)}" stroke-linecap="round" transform="rotate(-90 24 24)"/></svg><div style="position:absolute;font-size:11px;font-weight:500;color:${cf.c}">${cf.s}%</div></div><div style="font-size:9px;color:var(--color-text-secondary);max-width:52px;line-height:1.3">${cf.l.replace(/\n/g,'<br>')}</div>`;
+    cr.appendChild(d);
+  });
+}
+</script>
