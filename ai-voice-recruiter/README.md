@@ -5,7 +5,8 @@
 <br>
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/d1ebe1b6-bc09-4404-a9e3-f543e1465e95" width="100%">
+  <img src="<img width="1390" height="607" alt="Screenshot 2026-06-30 at 7 28 04 PM" src="https://github.com/user-attachments/assets/48aaa468-f5a7-45b7-8896-f2f36fb4475a" />
+" width="100%">
 </p>
 
 ---
