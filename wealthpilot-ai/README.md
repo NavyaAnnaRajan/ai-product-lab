@@ -1,107 +1,95 @@
 # 💰 AI Conversational Wealth Coach
 
-## Executive Summary
+> An AI-first fintech product concept exploring how conversational AI can simplify investing for first-time investors through personalized guidance, financial education, and natural language interactions.
+<br>
 
-AI Conversational Wealth Coach is an AI-first product concept that reimagines how first-time investors interact with financial products. Instead of relying on traditional investment dashboards filled with charts, financial metrics, and technical terminology, the product introduces a conversational AI mentor that guides users through their financial journey using personalized, educational conversations.
+<p align="center">
+  <img
+    width="1440"
+    height="776"
+    alt="AI Conversational Wealth Coach"
+    src="https://github.com/user-attachments/assets/513f341e-5331-4443-a5fe-f0cb4031bc87"
+  />
+</p>
+---
 
-The concept originated from observing that most investment platforms are designed for experienced investors, while beginners often struggle with financial jargon, information overload, and uncertainty about where to begin. Rather than asking users to interpret complex dashboards, this product explores whether conversational AI can become the primary interface for financial education and investment discovery.
+## 💡 Why this exists
 
-Instead of providing financial advice, the AI acts as a trusted mentor that explains investment concepts in simple language, understands each user's financial context, answers questions naturally, and demonstrates how consistent investing can contribute to long-term wealth creation. The focus is on reducing cognitive overload, improving financial literacy, and building confidence before users make investment decisions.
+Most investment platforms are built for people who already understand finance. They expose users to dashboards, charts, technical terminology, and dozens of investment options from the very first screen.
 
-This project was created as a Product Management case study to explore how Generative AI can fundamentally improve onboarding, education, and decision support in the fintech space. It demonstrates AI-first product thinking, user-centered design, conversational experiences, responsible AI principles, and rapid product prototyping.
+For someone investing for the first time, this often creates uncertainty rather than confidence.
+
+This project explores a simple question:
+
+**What if the primary interface for investing wasn't a dashboard—but a conversation?**
+
+Instead of asking users to understand finance before they invest, this concept investigates how an AI mentor can educate, guide, and build confidence throughout the investment journey.
 
 ---
 
-## 🚀 Product Vision
+## 🚀 Product Overview
 
-To make investing approachable for first-time investors by replacing complex financial dashboards with a conversational AI mentor that educates, guides, and builds confidence through personalized interactions.
+AI Conversational Wealth Coach is a Product Management case study and AI-first prototype that reimagines the onboarding and education experience for retail investing.
 
----
+Rather than functioning as another chatbot, the product is designed as an intelligent financial mentor that understands user context, explains concepts in simple language, answers questions conversationally, and helps users make informed investment decisions without overwhelming them.
 
-## 🎯 The Problem
-
-Traditional investment platforms assume users already understand investing. However, first-time investors often experience:
-
-- Information overload from complex dashboards
-- Low financial literacy and unfamiliar terminology
-- Fear of making costly financial mistakes
-- Lack of personalized guidance during onboarding
-- Low confidence in taking the first investment step
-
-The challenge isn't a lack of investment products—it's the lack of accessible guidance.
+The objective is not to replace financial advisors or recommend investments, but to reduce cognitive overload and improve financial literacy before users begin investing.
 
 ---
 
-## 💡 The Solution
+## 🤖 AI-First Thinking
 
-The AI Conversational Wealth Coach transforms the investment journey into a guided conversation.
+This project explores AI as the **core product experience**, rather than treating it as an additional feature.
 
-Instead of navigating charts and analytics, users interact with an AI mentor that:
+Key design principles include:
 
-- Understands their financial situation
-- Explains investment concepts in simple language
-- Answers questions conversationally
-- Demonstrates long-term wealth growth through investment simulations
-- Encourages informed, confidence-driven financial decisions
-
-The experience is designed around **education before recommendation**, ensuring users build understanding before exploring investment options.
-
----
-
-## 🤖 AI-First Product Thinking
-
-This concept explores AI as the primary product experience rather than an additional feature.
-
-Key AI principles include:
-
-- Context-aware conversations
-- Personalized financial education
-- Natural language interactions
-- Progressive learning journeys
-- Transparent AI guardrails
-- Responsible AI that educates rather than advises
+- 🧠 Personalized financial education based on user context
+- 💬 Natural, conversational interactions instead of complex dashboards
+- 📈 Guided investment simulations to build confidence
+- 🎯 Progressive learning journeys for beginners
+- 🔍 Transparent and explainable AI responses
+- 🛡️ Responsible AI focused on education, not financial advice
 
 ---
 
-## 📊 Success Metrics
+## 📈 Product Goals
 
-The product would be evaluated using metrics such as:
+The concept focuses on solving several common challenges faced by first-time investors:
 
-- Onboarding completion rate
-- AI conversations per user
-- Financial questions asked
-- Investment simulation usage
-- User confidence after onboarding
-- Financial learning progression
-
----
-
-## 🛠️ Deliverables
-
-This repository includes:
-
-- Executive Product Summary
-- Product Vision & Strategy
-- User Personas
-- AI Product Thinking
-- Product Demonstration
-- Product Workflow
-- Product Learnings
-
-> The complete Product Requirements Document (PRD), user stories, feature prioritization, implementation roadmap, and detailed product strategy are intentionally not included in this public repository.
+- Reduce information overload during onboarding
+- Improve financial literacy through conversational learning
+- Build confidence before making investment decisions
+- Simplify complex financial concepts using AI
+- Increase user engagement through personalized guidance
 
 ---
 
-## 🎥 Product Demo
+## 🛠️ Product Thinking
 
-**Live Prototype:**  
-👉 
+This project demonstrates several areas of AI Product Management:
 
-**Demo Video:**  
-👉 
+- AI-first product strategy
+- Conversational UX design
+- Product discovery and problem framing
+- Prompt engineering for guided interactions
+- Responsible AI principles
+- Fintech user experience design
+- Rapid prototyping and experimentation
 
 ---
 
-## 💭 Key Learning
+## 📸 Product Walkthrough
 
-This project reinforced that the biggest opportunity for AI in fintech is not replacing financial advisors—it is making investing approachable for millions of people who hesitate to begin because existing products are too complex. By combining conversational AI with thoughtful product design, financial education can become significantly more personalized, engaging, and accessible.
+This repository contains selected product screens and demonstrations illustrating the overall experience, conversation flows, onboarding journey, and AI interactions.
+
+> The complete Product Requirements Document (PRD), user research, feature prioritization, implementation roadmap, and internal product strategy have been intentionally omitted from this public repository.
+
+---
+**Demo Video**  
+👉 https://drive.google.com/file/d/18Bw4FKS_2A2PRUcwGFMgybGO8gnXD0mJ/view?usp=drive_link
+
+---
+
+## 💭 Key Takeaway
+
+This project reinforced my belief that the next generation of fintech products will not compete on the number of investment options they provide, but on how effectively they help users understand those options. Conversational AI has the potential to transform investing from a complex financial task into an accessible, educational, and confidence-building experience.
