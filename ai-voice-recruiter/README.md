@@ -4,8 +4,6 @@
 > 
 <img width="1389" height="776" alt="Screenshot 2026-06-30 at 7 11 56 PM" src="https://github.com/user-attachments/assets/d1ebe1b6-bc09-4404-a9e3-f543e1465e95" />
 ---
-
-
 ## 💡 Why I built this
 
 Recruiters spend a considerable amount of time conducting repetitive screening interviews—asking the same qualification questions, documenting responses, and deciding whether candidates should progress to the next stage. As hiring volumes increase, this process becomes difficult to scale while still providing a consistent experience for every candidate.
