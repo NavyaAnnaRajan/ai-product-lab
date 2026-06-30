@@ -15,8 +15,6 @@ The application was developed using AI-assisted development, allowing rapid prot
 
 # 💰 WealthPilot – AI Conversational Wealth Coach
 
-## Overview
-
 WealthPilot is an AI-first product concept developed as an end-to-end Product Management case study to explore how Generative AI can transform financial education and investment onboarding for first-time investors.
 
 Rather than introducing AI as another feature within an existing investment platform, WealthPilot reimagines the entire user experience by making conversational AI the primary interface for learning, guidance, and decision support. The concept addresses a common challenge faced by new investors—financial jargon, information overload, and lack of confidence—by replacing complex dashboards with personalized, natural language conversations.
