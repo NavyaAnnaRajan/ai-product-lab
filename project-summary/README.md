@@ -9,25 +9,6 @@ Rather than building a generic AI chatbot, the goal was to create a focused prod
 
 The application was developed using AI-assisted development, allowing rapid prototyping while enabling me to focus on product strategy, user experience, prompt engineering, and interaction design.
 
-### My Contributions
-
-- Identified the user problem through market observation and personal experience.
-- Defined the product vision and user journey.
-- Designed conversational workflows and interaction patterns.
-- Created prompts to generate structured and ATS-friendly resume improvements.
-- Iterated on response formats to improve clarity, readability, and usability.
-- Rapidly prototyped the application using AI-assisted development.
-- Validated the overall experience through multiple iterations.
-
-### AI Tools Used
-
-- **Claude Code** – AI-assisted development, frontend implementation, debugging, code refactoring, and rapid prototyping.
-- **Claude** – Product ideation, prompt engineering, UX improvements, feature exploration, and conversational flow design.
-- **ChatGPT** – Resume optimization, ATS keyword analysis, content refinement, product brainstorming, and copy improvements.
-- **Figma** – UI wireframes and interaction planning.
-- **GitHub** – Version control and documentation.
-- **Vercel** – Deployment and live product demonstration.
-
 **Demo:** *(Add Demo Link)*
 
 ➡️ **Project
@@ -44,19 +25,6 @@ The AI mentor is designed to understand each user's financial context, explain i
 
 This project combines product discovery, user research, AI-first product strategy, conversational experience design, prompt engineering, and rapid prototyping to demonstrate how Generative AI can fundamentally reshape digital financial experiences.
 
----
-
-## My Contributions
-
-- Identified the market opportunity through user research and competitive analysis.
-- Defined the product vision, value proposition, and AI-first strategy.
-- Created user personas, customer journey maps, and problem statements.
-- Authored a comprehensive Product Requirements Document (PRD).
-- Designed conversational AI workflows and end-to-end user experiences.
-- Defined onboarding flows, personalization strategy, and AI interaction patterns.
-- Established responsible AI principles, guardrails, and conversation boundaries.
-- Prioritized features, success metrics, and product roadmap.
-- Built an interactive prototype to validate the overall product experience.
 
 ---
 
@@ -72,44 +40,10 @@ This project combines product discovery, user research, AI-first product strateg
 
 ---
 
-## AI Concepts Explored
-
-- AI-First Product Strategy
-- Conversational AI
-- Large Language Models (LLMs)
-- Prompt Engineering
-- Personalized User Experiences
-- AI-Assisted Product Discovery
-- Responsible AI & Guardrails
-- Human-Centered AI Design
-- Rapid AI Prototyping
-
----
-
-## Deliverables
-
-- Product Vision & Strategy
-- Market & User Research
-- User Personas
-- Customer Journey Maps
-- Product Requirements Document (PRD)
-- AI Conversation Flows
-- Wireframes & Interactive Prototype
-- Feature Prioritization
-- Success Metrics Framework
-
----
-
 ## 🎥 Demo
 
 **Interactive Prototype:** *(Add Figma / Prototype Link)*
 
 **Demo Video:** *(Add Loom / YouTube Link)*
 
----
-
-## Key Learning
-
-This project strengthened my understanding of designing AI-first products where conversational AI becomes the primary user experience rather than an additional feature. It reinforced the importance of combining user-centered design, responsible AI principles, prompt engineering, and rapid experimentation to create intuitive, trustworthy, and impactful AI-powered products.
-
-> **Note:** This public repository provides an executive overview of the product. The complete Product Requirements Document (PRD), detailed feature specifications, user stories, and implementation roadmap are available upon request.
+-
