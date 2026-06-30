@@ -1,17 +1,36 @@
 # Resume Copilot
 
-Resume Copilot is an AI-powered product experiment built to explore how Large Language Models can improve one of the most repetitive and frustrating parts of the job search process—writing and tailoring resumes. Rather than building another generic AI chatbot, this project focuses on solving a specific user problem through a focused conversational experience that helps users rewrite resume content into stronger, more impactful, and ATS-friendly statements.
+Resume Copilot is an AI-powered product experiment built to explore how Large Language Models can simplify and improve the resume optimization process. The objective was not to build another generic AI chatbot, but to design a focused productivity tool that helps users transform ordinary resume content into clear, measurable, and recruiter-friendly achievements through an intuitive conversational experience.
 
-This project was developed as part of my ongoing exploration of AI-assisted product development and rapid prototyping using Claude Code. My objective was not only to build a working application, but also to understand how Generative AI can be combined with thoughtful product design to create practical productivity tools that solve real user problems. Throughout the project, I experimented with prompt engineering, conversational UX, response structuring, and interaction patterns to understand how AI can guide users through iterative content improvement instead of simply generating text.
+**Why I Built This**
 
-The application allows users to submit resume bullets, paragraphs, or entire sections through a chat interface and receive structured suggestions that improve clarity, impact, readability, and ATS compatibility. Instead of returning lengthy responses, the assistant presents multiple improvement options, enabling users to compare alternatives, iterate quickly, and choose the version that best represents their experience. This conversational workflow was intentionally designed to feel collaborative, making AI function as a writing assistant rather than a one-time content generator.
+As someone actively applying for Product Management roles, I found myself repeatedly tailoring my resume for different job descriptions. While existing AI tools could generate content, they often produced lengthy, generic responses that still required significant manual editing. I wanted to explore whether a focused AI assistant could provide structured, actionable recommendations that made resume optimization faster, more interactive, and more practical.
 
-From a product perspective, this project was an opportunity to explore several important questions: How can AI reduce the effort involved in resume optimization? How should AI-generated responses be structured to maximize user trust and usability? How can conversational interfaces simplify complex editing workflows? These questions guided the product decisions throughout the development process and helped shape both the interaction model and the user experience.
+This project also served as an opportunity to deepen my understanding of AI-assisted product development, prompt engineering, conversational UX, and rapid prototyping using Claude Code.
 
-The application was rapidly prototyped using Claude Code with React, TypeScript, Tailwind CSS, and Vite. Rather than manually implementing every component, I used AI-assisted development to accelerate implementation while focusing my effort on defining the product workflow, refining prompts, improving the user experience, validating outputs, and iterating on the overall solution. This project reflects my approach to AI-first product management, where AI is used not only as a feature within a product but also as a development partner to accelerate experimentation and learning.
+**What I Explored**
 
-More than a resume optimization tool, Resume Copilot represents my ongoing journey of experimenting with AI, building practical product prototypes, and understanding how emerging AI capabilities can be transformed into meaningful user experiences.
+Instead of generating long-form content, Resume Copilot was designed to function as an AI writing companion. Users can provide resume bullets, paragraphs, or sections through a conversational interface, and the application returns structured improvements focused on clarity, impact, action-oriented language, measurable outcomes, and ATS-friendly wording. The interaction model encourages users to iterate, compare alternatives, and progressively improve their resume rather than accepting a single AI-generated response.
 
-## Demo
+Throughout the project, I experimented with prompt engineering, response structuring, conversational workflows, and interaction design to better understand how AI can guide users through content refinement while maintaining control over the final output.
 
-https://resume-copilot-red.vercel.app/
+**AI-Assisted Development**
+
+The application was rapidly prototyped using Claude Code with React, TypeScript, Tailwind CSS, and Vite. Rather than manually implementing every component, I leveraged AI-assisted development to accelerate coding while focusing on product discovery, workflow design, prompt refinement, usability testing, and continuous iteration. This project reflects my belief that AI should not only power product features but also become an integral part of the product development process itself.
+
+**Key Learnings**
+
+This experiment helped me better understand how Generative AI can be applied to solve focused productivity problems instead of acting as a generic chatbot. It reinforced the importance of designing AI experiences around specific user goals, structuring AI responses for usability, and combining product thinking with rapid AI-assisted development to validate ideas quickly. More importantly, it demonstrated how AI can significantly accelerate product experimentation while enabling faster iteration and better user experiences.
+
+**Technology Stack**
+
+- Claude Code
+- React
+- TypeScript
+- Tailwind CSS
+- Vite
+- Prompt Engineering
+
+**Demo**
+
+🔗 https://resume-copilot-red.vercel.app/
