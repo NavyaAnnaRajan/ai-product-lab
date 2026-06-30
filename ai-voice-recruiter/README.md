@@ -2,8 +2,7 @@
 
 > An AI-powered voice recruitment assistant exploring how conversational AI can automate candidate screening while keeping recruiters in control of hiring decisions.
 > 
-*<img width="1389" height="776" alt="Screenshot 2026-06-30 at 7 11 56 PM" src="https://github.com/user-attachments/assets/d1ebe1b6-bc09-4404-a9e3-f543e1465e95" />
-*
+<img width="1389" height="776" alt="Screenshot 2026-06-30 at 7 11 56 PM" src="https://github.com/user-attachments/assets/d1ebe1b6-bc09-4404-a9e3-f543e1465e95" />
 ---
 
 
@@ -62,38 +61,10 @@ Some of the areas I explored include:
 
 ---
 
-## 📸 Project Walkthrough
-
-*<img width="1389" height="776" alt="Screenshot 2026-06-30 at 7 11 56 PM" src="https://github.com/user-attachments/assets/d1ebe1b6-bc09-4404-a9e3-f543e1465e95" />
-*
-
-### Candidate Voice Interview
-
-*Screenshot*
-
-### AI Conversation Flow
-
-*Screenshot*
-
-### Recruiter Dashboard
-
-*Screenshot*
-
-### Candidate Evaluation Summary
-
-*Screenshot*
-
-### System Architecture
-
-*Screenshot*
-
----
-
 ## 🎥 Demo
 
-**Live Demo:** *(Add link)*
 
-**Demo Video:** *(Add link)*
+**Demo Video:** https://drive.google.com/file/d/1QK7ozRWwCyOMWgu9-dDiUQZiSB5_ZD9B/view?usp=drive_link
 
 ---
 
