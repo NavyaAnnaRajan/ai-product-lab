@@ -1,34 +1,9 @@
 # AI Product Lab
 
-Welcome to my AI Product Lab—a collection of AI experiments, product prototypes, workflows, and case studies built to explore how Generative AI can solve real user problems and accelerate product development.
+AI Product Lab is my personal space for exploring how Generative AI can transform product management, user experiences, and the way software is designed and built. As AI continues to reshape how products are conceived, developed, and delivered, I believe Product Managers need to move beyond simply using AI tools and start understanding how AI can fundamentally change workflows, decision-making, and customer value.
 
-As a Product Manager, I believe AI should be more than just another feature. My goal is to understand how Large Language Models, AI agents, prompt engineering, and workflow automation can improve user experiences, increase productivity, and enable faster product discovery and experimentation.
+This repository documents my journey of learning, experimenting, and rapidly prototyping AI-powered ideas using technologies such as Large Language Models (LLMs), prompt engineering, AI-assisted development, workflow automation, and emerging AI capabilities. Rather than focusing on theoretical concepts, I use hands-on experimentation to understand what works, what doesn't, and how AI can be applied to solve practical business and user problems.
 
-This repository documents my learning journey as I build, prototype, and validate AI-powered products using modern AI development tools such as Claude Code, ChatGPT, Cursor, and other emerging AI technologies.
+Every experiment begins with a product question rather than a technical implementation. I explore user problems, identify opportunities where AI can create meaningful value, prototype solutions, iterate quickly using AI-assisted development tools, and reflect on the product decisions, trade-offs, and learnings throughout the process. The goal is not simply to build with AI, but to understand how AI can improve productivity, enable better user experiences, and create new possibilities for modern software products.
 
-## Repository Goals
-
-- Explore AI-first product thinking
-- Rapidly prototype ideas using AI-assisted development
-- Experiment with prompt engineering and conversational UX
-- Build practical productivity tools that solve real problems
-- Learn by shipping small, focused AI applications
-
-## Projects
-
-### Resume Copilot
-
-An AI-powered resume optimization assistant that helps users improve resume content through an interactive conversational workflow.
-
-**Status:** ✅ Completed Prototype
-
-More projects coming soon...
-
-- AI Figma Usability Review Plugin
-- Claude Pre-Mortem Framework
-- AI Support Copilot Experiments
-- Product Discovery AI Workflows
-
----
-
-This repository is continuously updated as I experiment with new AI tools, build prototypes, and document learnings from real-world product use cases.
+This repository represents my continuous learning as I experiment with emerging AI technologies, validate ideas through rapid prototyping, and develop an AI-first approach to product management.
