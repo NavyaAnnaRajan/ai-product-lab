@@ -1,9 +1,38 @@
-# AI Product Lab
+# 🤖 AI Product Lab
 
-AI Product Lab is my personal space for exploring how Generative AI can transform product management, user experiences, and the way software is designed and built. As AI continues to reshape how products are conceived, developed, and delivered, I believe Product Managers need to move beyond simply using AI tools and start understanding how AI can fundamentally change workflows, decision-making, and customer value.
+Welcome to my AI Product Lab—a collection of hands-on experiments, rapid prototypes, and product explorations focused on understanding how Generative AI can solve real user problems and reshape modern product management.
 
-This repository documents my journey of learning, experimenting, and rapidly prototyping AI-powered ideas using technologies such as Large Language Models (LLMs), prompt engineering, AI-assisted development, workflow automation, and emerging AI capabilities. Rather than focusing on theoretical concepts, I use hands-on experimentation to understand what works, what doesn't, and how AI can be applied to solve practical business and user problems.
+As AI continues to transform the way products are built, I believe Product Managers need to go beyond simply using AI tools. My goal is to understand how AI can improve decision-making, automate workflows, enhance user experiences, and unlock entirely new product opportunities through continuous experimentation and rapid learning.
 
-Every experiment begins with a product question rather than a technical implementation. I explore user problems, identify opportunities where AI can create meaningful value, prototype solutions, iterate quickly using AI-assisted development tools, and reflect on the product decisions, trade-offs, and learnings throughout the process. The goal is not simply to build with AI, but to understand how AI can improve productivity, enable better user experiences, and create new possibilities for modern software products.
+Instead of treating AI as just another feature, I approach every experiment with a product-first mindset—starting with a user problem, exploring where AI can create meaningful value, rapidly prototyping potential solutions, and continuously iterating based on observations and learnings.
 
-This repository represents my continuous learning as I experiment with emerging AI technologies, validate ideas through rapid prototyping, and develop an AI-first approach to product management.
+## 🎯 What You'll Find Here
+
+- AI-powered product prototypes
+- Rapid experiments built using AI-assisted development
+- Prompt engineering workflows and reusable techniques
+- Product discovery and validation experiments
+- UX explorations for AI-first experiences
+- Case studies, learnings, and product thinking
+
+## 🛠️ How I Experiment
+
+Every experiment follows a simple product thinking framework:
+
+**Problem → User → Opportunity → AI Approach → Prototype → Validation → Learnings → Next Iteration**
+
+Rather than focusing on perfect implementations, I use rapid prototyping to validate ideas, understand trade-offs, and learn how emerging AI capabilities can be applied to real-world business and customer problems.
+
+## 🚀 Current Focus Areas
+
+- Large Language Models (LLMs)
+- AI-Assisted Product Development
+- Prompt Engineering
+- AI Agents & Workflow Automation
+- Conversational User Experiences
+- AI Productivity Tools
+- Rapid Prototyping with Claude Code
+
+## 🌱 Why This Repository Exists
+
+This repository documents my continuous learning journey as I explore AI-first product management through building, experimenting, and sharing practical applications of Generative AI. Every prototype represents an opportunity to better understand how AI can help Product Managers build better products, make faster decisions, and deliver greater value to users.
