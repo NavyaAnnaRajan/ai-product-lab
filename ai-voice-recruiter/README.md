@@ -3,7 +3,6 @@
 > An AI-powered voice recruitment assistant exploring how conversational AI can automate candidate screening while keeping recruiters in control of hiring decisions.
 > 
 <img width="1389" height="776" alt="Screenshot 2026-06-30 at 7 11 56 PM" src="https://github.com/user-attachments/assets/d1ebe1b6-bc09-4404-a9e3-f543e1465e95" />
----
 
 ## 💡 Why I built this
 
