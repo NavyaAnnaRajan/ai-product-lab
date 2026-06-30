@@ -11,7 +11,6 @@
     src="https://github.com/user-attachments/assets/513f341e-5331-4443-a5fe-f0cb4031bc87"
   />
 </p>
----
 
 ## 💡 Why this exists
 
